@@ -1,0 +1,58 @@
+<style>
+	.convos-column{display: block !important;}
+	.m0.p0.column1.view-animate.ng-scope{
+	    overflow: hidden;
+    	position: relative;
+	}
+</style>
+
+
+
+
+
+
+<div class="outer-white1" id="talk1" ng-init="get_profiles();">
+	<!--==== messanger ====-->
+		<div class="wrapper h100">
+		  
+		  <div class="phone-containter h100">
+
+		  	<div class="who-container">
+		  		<div class="level">
+		      		<img src="{{him.photoURL}}" alt="" class="img-responsive level-item">
+		      		<p class="level-item">To: {{him.displayName}}</p>
+		  		</div>
+		    </div>
+
+
+		    <div id="phone" class="phone">
+			    <div class="message1 clearfix" ng-class="(m.uid==u.uid) ? 'right' : 'left'" ng-repeat="m in messages">
+			    	<div class="stuff">
+			    		<p class="muted"><small>
+			    			<strong>{{m.display}}</strong> | 
+			    			{{m.time| date: m.time}}</small>
+			    			<i ng-hide="m['read_'+him.uid]" class="fa fa-eye-slash red" aria-hidden="true"></i>
+			    			<i ng-show="m['read_'+him.uid]" class="fa fa-eye green" aria-hidden="true"></i>
+			    		</p>
+			    		<div class="message-text" ng-click="messages.$remove(m)">{{m.text}}</div>
+			    		<input ng-init="read_increment(m);" class="hide">
+			    	</div>
+			    </div>
+				<div class="busy">
+					<p ng-repeat="b in busy_arr" ng-hide="b.$id == u.uid">
+						<em ng-if="b.$value">{{him.displayName}} is typing...</em>
+					</p>
+				</div>
+		    </div>
+		    
+		    <div class="send-container">
+		      <form id="send" ng-submit="addMessage(newMessageText)" autocomplete="off">
+		      	<textarea id="msgInput" class="send-input" placeholder="Message" ng-model="newMessageText" ng-change="typing();" ></textarea>
+		      	<input type="submit" class="send-btn hide" value="Send">
+		      </form>
+		    </div>
+		  </div>
+
+		</div>
+	<!--====// messanger ====-->
+</div>

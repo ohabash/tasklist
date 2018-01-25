@@ -1,0 +1,47 @@
+<!-- departments -->
+<nav id="departments" class="sub pr" ng-controller="department_nav">
+	<div class="inside">
+	    <ul class="sidenav sort_groups" id="sortable1">
+
+			<ul ng-repeat="department in departments" class="each_department" ng-class="{'last':$last}" ng-init="department.group_list_id='list_'+department.$id; departments.$save(department); get_lists(department.$id); sort_lists(); sort_groups();">
+				<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+				<h3 class="{{department.$id}}" ng-click="guts(department.$id)">
+					{{department.name || 'untitled'}}
+					<i class="fa fa-trash" ng-dblclick="departments.$remove(department)"></i>
+				</h3>
+				<ul id="{{department.$id}}" class="gut-area open sort_lists" ng-init="">
+					<li 
+					ng-repeat="list in name4repeat(department.$id) | orderBy:'order'"
+					item-id="{{list.$id}}"
+					item-name="{{list.name}}"
+					item-order="{{list.order}}"
+					>
+						<a href="/lists/{{list.$id}}">{{list.name}}</a>
+						<i class="fa fa-trash" ng-dblclick="name4repeat(department.$id).$remove(list)"></i>
+						<input type="text" class="order hide" ng-model="list.order" ng-change="name4repeat(department.$id).$save(list); floats(department.$id)" name="">
+					</li>
+				</ul>
+				<div class="addForm"><a>
+				  	<form  ng-submit="new_list(department.$id,l_name)">
+				  		<input class="l_name" ng-model="l_name" type="text" placeholder="new task list..." name="">
+				  	</form>
+			  </a></div>
+				<!-- <hr> -->
+			</ul>
+
+			<li class="new_department">
+			  	<form ng-submit="new_department()">
+			  		<input id="d_name" ng-model="d_name" type="text" placeholder="New department ..." name="">
+			  		<img src="assets/img/add-list.svg" ng-click="focus('d_name')">
+			  	</form>
+			</li>
+
+		</ul>
+	</div>
+</nav>
+
+
+
+<!-- <a href="/lists/{{item.$id}}">{{item.name || 'untitled'}}
+	<i class="fa fa-trash" ng-dblclick="departments.$remove(item)"></i>
+</a> -->

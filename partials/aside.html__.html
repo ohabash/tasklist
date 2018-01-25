@@ -1,0 +1,54 @@
+
+<div id="aside" ng-controller="nav">
+	<!-- <div class="columns h100"> -->
+	  	<!-- logo -->
+		<!-- team-nav -->
+		<nav id="team" class="column1 dark-bg h100">
+			<ul class="teams">
+				<li>
+					<a class="nav-link" data-path="x" ng-click="ACTIVE();" href="/">
+						<i class="fa fa-list" aria-hidden="true"></i>
+						<span class="sr-only hide">lists</span>
+					</a>
+				</li>
+				<li>
+					<a class="nav-link" data-path="xskills" ng-click="ACTIVE();" href="/skills">
+						<i class="fa fa-magic" aria-hidden="true"></i>
+						<span class="sr-only hide">Skills</span>
+					</a>
+				</li>
+				<li>
+					<a class="nav-link" data-path="xchat" ng-click="ACTIVE();" href="/chat">
+						<i class="fa fa-comments-o" aria-hidden="true"></i>
+						<span class="sr-only hide">chat</span>
+						<badge ng-if="unRead[u.uid]">{{unRead[u.uid]}}</badge>
+					</a>
+				</li>
+			</ul>
+			<div class="icon-nav">
+				<div data-tooltip="{{u.displayName}}" data-placement="top" ng-if="u">
+					<a class="profile_img {{$bg}}" href="login">
+						<img src="{{u.photoURL}}" alt="" class="img-responsive">
+					</a>
+				</div>
+				<div class="level">
+					<div class="level-item" data-tooltip="Sign-In" data-placement="top" ng-hide="u">
+						<a href="/login" ng-click="ACTIVE();" ><i class="fa fa-sign-in"></i></a>
+					</div>
+					<div class="level-item" data-tooltip="Sign-Out" data-placement="top" ng-show="u">
+						<a href="javascript:void(0)" ng-click="logout(); edit_off(true)" ><i class="fa fa-sign-out"></i></a>
+					</div>
+					<div class="level-item" data-tooltip="Settings" data-placement="top">
+						<a href="/settings"><i class="fa fa-cogs"></i></a>
+					</div>
+					<div class="level-item" data-tooltip="Fullscreen" data-placement="top">
+						<a href="javascript:void(0)" class="Fullscreen" ng-click="fullscreen()"><i class="fa fa-arrows-alt"></i></a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		
+	<!-- </div> -->
+</div>
+

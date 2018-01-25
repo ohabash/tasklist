@@ -108,16 +108,16 @@
 
 .editable-click,
 a.editable-click {
-  text-decoration: none;
-  color: #428bca;
-  border-bottom: dashed 1px #428bca;
+  // text-decoration: none;
+  // color: $green;
+  // border-bottom: dotted 1px;
 }
 
 .editable-click:hover, 
 a.editable-click:hover {
-  text-decoration: none;
-  color: #2a6496;
-  border-bottom-color: #2a6496;
+  // text-decoration: none;
+  // color: #2a6496;
+  // border-bottom-color: #2a6496;
 }
 
 /* editable-empty */

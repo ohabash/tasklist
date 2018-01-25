@@ -1,0 +1,66 @@
+<div ng-repeat="bug in bugs | orderBy:orderby:revv" ng-if="bug.summary" class="bug bug-cols">
+	<div class="bug-summary">
+		<div class="centerer level">
+			<div class="level-left">
+				<div class="level-item ellipsiss">
+					<i class="fa fa-ellipsis-v"></i>
+				</div>
+				<div class="level-item">
+					<span>{{bug.summary}}</span>
+				</div>
+			</div>
+			<div class="level-right">
+				<div class="level-item trash">
+					<i class="fa fa-trash" aria-hidden="true" ng-dblclick="bugs.$remove(bug)"></i>
+				</div>
+				<div class="level-item" >
+					<i class="fa fa-flag flag {{bug.flagged}}" aria-hidden="true" ng-click="bug.flagged=!bug.flagged; bugs.$save(bug)"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bug-owner" data-tooltip="First Last" data-placement="top">
+		<div class="centerer"><figure><img src="https://vignette.wikia.nocookie.net/gameofthrones/images/d/d2/Ramsay_S06E09_RESZIED_FOR_INFOBOX.jpg/revision/latest/scale-to-width-down/350?cb=20160622071734" alt=""></figure></div>
+	</div>
+	<div class="bug-priority {{bug.priority}} z-{{bug.open}}" ng-init="bug.open=false" ng-mouseleave="bug.open=false">
+		<div class="centerer" ng-click="bug.open=!bug.open">
+			{{bug.priority||'null'}} ({{bug.weight}})
+			<ul ng-if="bug.open" ng-click="bug.open=false">
+				<li ng-click="priority(bug,'low',1);">
+					<span>Low</span>
+					<div class="color low" aria-hidden="true"></div>
+				</li>
+				<li ng-click="priority(bug,'medium',2);">
+					<span>Medium</span>
+					<div class="color medium" aria-hidden="true"></div>
+				</li>
+				<li ng-click="priority(bug,'show stopper',3);">
+					<span>Show Stopper</span>
+					<div class="color stopper" aria-hidden="true"></div>
+				</li>
+				<li ng-click="priority(bug,'suggestion',0);">
+					<span>Suggestion</span>
+					<div class="color suggestion" aria-hidden="true"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div ng-init="datepicker(bug.$id)" class="bug-date"><div class="centerer">
+		<input type="text" id="datepicker_{{bug.$id}}" ng-model="bug.date" ng-change="bugs.$save(bug)">
+		<div class="dateshown">{{bug.date|date}}</div>
+	</div></div>
+	<div class="bug-status {{bug.finished}}">
+		<div class="centerer " ng-click='bug.finished=!bug.finished;bugs.$save(bug)'>
+			<i class="fa fa-check" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div class="bug-status" >
+		<div class="centerer">{{bug.order}}</div>
+		<input type="text" class="order hide" ng-model="bug.order" ng-change="bugs.$save(bug);" name="">
+	</div>
+</div>
+
+
+
+
+

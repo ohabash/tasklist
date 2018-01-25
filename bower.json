@@ -20,6 +20,9 @@
     "angular-animate": "~1.6.6",
     "angular-route": "1.4.0",
     "angularfire": "~2.3.0",
-    "jquery": "~3.2.1"
+    "jquery": "~3.2.1",
+    "angular-ui-sortable": "^0.18.0",
+    "angular-toArrayFilter": "^1.0.3",
+    "angular-counter": "angular-counter-animation#^0.2.0"
   }
 }

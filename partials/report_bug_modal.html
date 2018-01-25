@@ -1,0 +1,29 @@
+<div class="modal is-active" ng-if="report_bug_modal">
+	<div class="modal-background"></div>
+	<div class="modal-content">
+		<div class="modal-head"><h2>Report a bug</h2></div>
+		<div class="modal-body">
+			
+			<form id="new_bug">
+				<!-- name -->
+				<div class="field">
+				  <label class="label">summary</label>
+				  <div class="control">
+				    <input ng-model="data.summary" class="input" type="text" placeholder="Notice summary...">
+				    <input type="hidden" ng-model="data.priority" ng-init="data.priority='low'">
+				  </div>
+				</div>	
+			</form>
+
+		</div>
+		<div class="field is-grouped lighter-bg p1em">
+		  <p class="control">
+		    <a class="button is-primary" ng-click="bugs.$add(data);modal('report_bug_modal',true)">Save</a>
+		  </p>
+		  <p class="control">
+		    <a class="button orange-bg white" ng-click="modal('report_bug_modal',true)">close</a>
+		  </p>
+		</div>
+	</div>
+	<button class="modal-close is-large" ng-click="modal('report_bug_modal',true)"></button>
+</div>

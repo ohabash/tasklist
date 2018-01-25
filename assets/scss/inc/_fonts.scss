@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
 @mixin newFont($fontName) {
 	@font-face {
 	    src: url('../fonts/$fontName/$fontName.eot');
@@ -10,19 +11,21 @@
 }
 
 //================ ChronicleDisplay-Bold ================//
-@include newFont(ChronicleDisplay-Bold);
-.ChronicleDisplay-Bold, .font1 {
-	font-family: 'ChronicleDisplay-Bold',"Big Caslon", "Book Antiqua", "Palatino Linotype",TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-}
+// @include newFont(ChronicleDisplay-Bold);
+// .ChronicleDisplay-Bold, .font1 {
+// 	font-family: 'ChronicleDisplay-Bold',"Big Caslon", "Book Antiqua", "Palatino Linotype",TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+// }
 
-//================ ChronicleDisplay-Roman ================//
-@include newFont(ChronicleDisplay-Roman);
-.ChronicleDisplay-Roman, .font2 {
-	font-family: 'ChronicleDisplay-Roman',"Big Caslon", "Book Antiqua", "Palatino Linotype",TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-}
 
 
 
 .opens{
-	font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: 'Muli', 'PT Sans', 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.mono{
+	font-family: 'Source Code Pro', monospace;
+	text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.28em;
 }

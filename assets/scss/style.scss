@@ -1,7 +1,7 @@
 
 @import 'inc/colors';
 @import 'inc/variable';
-@import 'inc/bootstrap-variables';
+// @import 'inc/bootstrap-variables';
 
 
 // packages
@@ -19,6 +19,10 @@
 @import 'inc/editable';
 @import 'inc/pusher';
 @import 'inc/notice';
+@import 'inc/tooltip';
+@import 'inc/dropzone';
+@import 'inc/chat';
+@import 'inc/jquery-ui.min';
 
 // parts
 @import 'page/part_header';

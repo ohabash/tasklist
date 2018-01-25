@@ -44,6 +44,16 @@
       -moz-filter: blur($blur);
    -webkit-filter: blur($blur);
 }
+@mixin fixed_cover() {
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@mixin rotate($deg) {
+    -ms-transform: rotate($deg);
+    -webkit-transform: rotate($deg);
+    transform: rotate($deg);
+}
 
 
 

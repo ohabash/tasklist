@@ -1,0 +1,55 @@
+<style ng-if="clutter" type="text/css"> .department-column{display:block;}</style>
+
+
+
+<div id="list-single" ng-init="get_list(p)">
+
+	<!-- head -->
+	<div class="single-head">
+		<div class="level">
+			<div class="level-left">
+				<div class="level-item list-name">
+					<h1>{{bugs.name}}<!-- <small>({{bugs.$id}})</small> {{bugs}} --></h1>
+				</div>
+			</div>
+			<div class="level-right">
+				<div class="score" data-tooltip="PRINT SITE HEALTH REPORT" data-placement="left">
+					<span class="score_val green">
+					<span id="SCORE" class="motion_blur"></span>%
+					</span>
+					<!-- <span class="score_val green">{{bugs_obj.point['percent']}}% {{bugs.points_possible}}</span> -->
+					<i class="fa fa-area-chart blue"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- body -->
+	<div class="list-body" ng-init="orderby='summary'">
+		<!-- body-head -->
+		<pre class="hide">{{bugs|json}}</pre>
+		<div class="list-body-head">
+			<div class="bug-cols">
+				<div>Bug Summary</div>
+				<div>owner</div>
+				<div ng-class="{'blue bold': orderby=='priority'}"><a ng-click="bug_sort('priority')">priority</a></div>
+				<div ng-class="{'blue bold': orderby=='date'}"><a ng-click="bug_sort('date')">date</a></div>
+				<div>status</div>
+				<div ng-class="{'blue bold': orderby=='order'}"><a ng-click="bug_sort('order')">order</a></div>
+			</div>
+		</div>
+		<!-- body-content -->
+		<div class="body-content">
+			<div class="bug_list" ng-init="sort_bugs();">
+				<div class="sort_bugs" ng-include="'partials/bug_item.html'"></div>
+				<button class="bug-btn" ng-click="modal('report_bug_modal')">Report a bug</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- #report_bug_modal -->
+    <div ng-include="'partials/report_bug_modal.html'"></div>
+	
+
+
+</div>

@@ -1,0 +1,20 @@
+<!-- convos -->
+<nav id="convos" class="sub pr" ng-controller="convos_nav">
+	<div class="inside">
+	    <ul class="sidenav">
+	    	<!-- <h3>convos</h3> -->
+			<li ng-if="admin" class="person white" data-chat="{{user.convo_id}}" ng-repeat="user in profiless" ng-click="switch_convo(user)" ng-hide="user.uid == u.uid">
+			    <div ng-include class="clearfix" src="'partials/convo_item.html'"></div>
+			</li>
+			<li class="person white" data-chat="{{user.convo_id}}" ng-repeat="user in profiless | filter:'habash'" ng-click="switch_convo(user)" ng-hide="user.uid == u.uid">
+			    <div ng-include class="clearfix" src="'partials/convo_item.html'"></div>
+			</li>
+		  <li class="new_project" ng-click="new_convo()"><a>
+		  	New Project
+		  	<img src="assets/img/add-list.svg">
+		  </a></li>
+		</ul>
+	</div>
+</nav>
+
+

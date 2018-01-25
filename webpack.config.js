@@ -3,10 +3,17 @@ var path = require('path');
 module.exports = {
   entry: './assets/js/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'bundler.js',
     path: here('dist')
-  }
+  },
 };
+
+function j() {
+new webpack.ProvidePlugin({
+'window.jQuery': 'jquery',
+'windows.$': 'jquery'
+});
+}
 
 
 function here(d) {
